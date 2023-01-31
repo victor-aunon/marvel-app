@@ -21,5 +21,6 @@ declare module 'styled-components' {
       normal: string
       bold: string
     }
+    borderRadius: string
   }
 }

@@ -20,6 +20,7 @@ const appTheme: DefaultTheme = {
     normal: '400',
     bold: '600',
   },
+  borderRadius: '10px',
 }
 
 export default appTheme

@@ -1,3 +1,11 @@
+import { Container } from '../../components/common'
+import { SearchBar } from '../../components/searchbar'
+
 export function Home(): JSX.Element {
-  return <p>The content</p>
+  return (
+    <Container>
+      <SearchBar />
+      <p>The content</p>
+    </Container>
+  )
 }

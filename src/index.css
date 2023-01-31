@@ -3,8 +3,8 @@
 
 :root {
   font-family: 'Ropa Sans', Arial, sans-serif;
-  font-size: 20px;
-  line-height: 32px;
+  font-size: 16px;
+  line-height: 26px;
   font-weight: 400;
 
   color: #ffffff;
@@ -22,8 +22,8 @@ html {
 body {
   margin: 0;
   padding: 0;
-  display: flex;
   width: 100vw;
+  display: flex;
   flex-direction: column;
   min-height: 100vh;
   box-sizing: border-box;
