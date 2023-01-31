@@ -1,6 +1,6 @@
-import { AppRoutes } from '../routes'
+import { AppRoutes } from '../../routes'
 import { Header } from './Header.styles'
-import { StyledLink } from './Link.styles'
+import { StyledLink } from '../common/Link.styles'
 import { Navbar } from './Navbar.styles'
 
 export function AppHeader(): JSX.Element {

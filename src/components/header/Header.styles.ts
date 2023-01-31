@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { devices } from '../styles'
+import { devices } from '../../styles'
 
 export const Header = styled.header`
   padding: 1rem;
