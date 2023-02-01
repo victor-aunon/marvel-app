@@ -5,7 +5,7 @@ export const SearchBarContainer = styled.div`
   flex-direction: column;
   position: relative;
 
-  svg {
+  .search-icon {
     position: absolute;
     bottom: 0.2rem;
     right: 0.3rem;

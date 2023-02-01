@@ -18,7 +18,7 @@ export function SearchBar(): JSX.Element {
         value={search}
         onChange={handleChange}
       />
-      <FiSearch aria-hidden={true} />
+      <FiSearch aria-hidden={true} className="search-icon" />
     </SearchBarContainer>
   )
 }
