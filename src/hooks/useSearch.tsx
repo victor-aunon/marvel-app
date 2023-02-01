@@ -20,6 +20,7 @@ export function useSearch(): UseSearch {
     const newQueryTimeout = setTimeout(() => {
       setQuery(searchValue)
     }, 500)
+    // Clean the previous setTimeout
     setQueryTimeout(newQueryTimeout)
   }
 

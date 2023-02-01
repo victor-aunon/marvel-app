@@ -1,0 +1,23 @@
+name: Test Marvel Character Wiki
+
+on:
+  - push
+  - pull_request
+
+jobs:
+  test-components:
+    environment: testing
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Test using Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '18.7'
+      - name: Install dependencies
+        run: yarn install
+      - name: Run tests
+        env:
+          VITE_PUBLIC_API_KEY: ${{ secrets.vite_public_api_key }}
+          VITE_PRIVATE_API_KEY: ${{ secrets.vite_private_api_key }}
+        run: yarn test
