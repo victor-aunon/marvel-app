@@ -6,6 +6,7 @@ import type { Character, CharacterApi, Comic, ComicApi } from '../interfaces'
 interface UseFetchCharacterData {
   getCharacters: (page?: number) => Promise<Character[]>
   getCharacterComics: (characterId: number, page?: number) => Promise<Comic[]>
+  isLoading: boolean
   charactersPages: number
   comicsPages: number
 }
@@ -18,6 +19,7 @@ export function useFetchCharactersData(): UseFetchCharacterData {
   const { query } = useContext(QueryContext)
   const [charactersPages, setCharactersPages] = useState(1)
   const [comicsPages, setComicsPages] = useState(1)
+  const [isLoading, setIsLoading] = useState(false)
 
   function createApiHash(): { ts: string; hash: string } {
     const ts = new Date().getTime().toString()
@@ -35,6 +37,7 @@ export function useFetchCharactersData(): UseFetchCharacterData {
     charactersUrl.searchParams.append('offset', `${page * resultsPerCall}`)
 
     const characters: Character[] = []
+    setIsLoading(true)
 
     try {
       const response = await fetch(charactersUrl)
@@ -54,6 +57,7 @@ export function useFetchCharactersData(): UseFetchCharacterData {
           comment: '',
         })
       })
+      setIsLoading(false)
     } catch (error) {
       console.error(error)
     }
@@ -73,6 +77,7 @@ export function useFetchCharactersData(): UseFetchCharacterData {
     comicsUrl.searchParams.append('offset', `${page * resultsPerCall}`)
 
     const comics: Comic[] = []
+    setIsLoading(true)
 
     try {
       const response = await fetch(comicsUrl)
@@ -94,11 +99,18 @@ export function useFetchCharactersData(): UseFetchCharacterData {
           url: comic.urls.filter((url) => url.type === 'detail')[0].url,
         })
       })
+      setIsLoading(false)
     } catch (error) {
       console.error(error)
     }
     return comics
   }
 
-  return { getCharacters, getCharacterComics, charactersPages, comicsPages }
+  return {
+    getCharacters,
+    getCharacterComics,
+    isLoading,
+    charactersPages,
+    comicsPages,
+  }
 }

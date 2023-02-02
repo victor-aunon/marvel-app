@@ -9,7 +9,7 @@ import type { AppStore } from '../../state/store'
 import type { Character } from '../../interfaces'
 
 export function SearchResults(): JSX.Element {
-  const { getCharacters, charactersPages } = useFetchCharactersData()
+  const { getCharacters, charactersPages, isLoading } = useFetchCharactersData()
   const { query } = useContext(QueryContext)
   const [characters, setCharacters] = useState<Character[]>([])
   const [page, setPage] = useState(0)
@@ -30,7 +30,7 @@ export function SearchResults(): JSX.Element {
 
   return (
     <>
-      {charactersPages > 1 && query !== '' && (
+      {charactersPages > 1 && !isLoading && (
         <Pagination
           pages={charactersPages}
           currentPage={page}
@@ -38,7 +38,7 @@ export function SearchResults(): JSX.Element {
         />
       )}
       <ResultsContainer>
-        {query !== '' &&
+        {!isLoading &&
           (characters.length > 0 ? (
             characters.map((character) => {
               const isFavorite = favoritesState.find(
@@ -56,7 +56,7 @@ export function SearchResults(): JSX.Element {
             <p>There are no results matching your search</p>
           ))}
       </ResultsContainer>
-      {charactersPages > 1 && query !== '' && (
+      {charactersPages > 1 && !isLoading && (
         <Pagination
           pages={charactersPages}
           currentPage={page}
