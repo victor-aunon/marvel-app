@@ -20,3 +20,11 @@ export interface RemoveFavoriteAction {
     characterId: number
   }
 }
+
+export interface AddCommentToFavoriteAction {
+  type?: string
+  payload: {
+    characterId: number
+    comment: string
+  }
+}

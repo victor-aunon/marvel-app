@@ -7,7 +7,7 @@ export function StorageTestComponent({
 }: {
   character: Character
 }): JSX.Element {
-  const { saveFavorite, deleteFavorite, loadFavoritesFromStorage } =
+  const { saveFavorite, deleteFavorite, loadFavoritesFromStorage, addComment } =
     useStorage()
 
   // Load favorites from storage on component mount
@@ -30,6 +30,13 @@ export function StorageTestComponent({
         }}
       >
         Remove favorite
+      </button>
+      <button
+        onClick={() => {
+          addComment(character.id, 'This is a comment')
+        }}
+      >
+        Add a comment
       </button>
     </>
   )

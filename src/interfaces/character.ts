@@ -5,6 +5,7 @@ export interface Character {
   image: string
   comicsUrl: string
   comicsCount: number
+  comment: string
 }
 
 export interface CharacterApi {

@@ -8,6 +8,7 @@ export const currentCharacterInitialState: Character = {
   description: '',
   comicsCount: 0,
   comicsUrl: '',
+  comment: '',
 }
 
 export const CurrentCharacterContext = createContext({

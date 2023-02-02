@@ -7,6 +7,7 @@ export const fakeCharacter1: Character = {
   image: 'https://picsum.photos/id/111/200/200.jpg',
   comicsCount: 21,
   comicsUrl: 'https://tracytest.com',
+  comment: '',
 }
 
 export const fakeCharacter2: Character = {
@@ -16,4 +17,5 @@ export const fakeCharacter2: Character = {
   image: 'https://picsum.photos/id/222/200/200.jpg',
   comicsCount: 20,
   comicsUrl: 'https://taylortest.com',
+  comment: '',
 }

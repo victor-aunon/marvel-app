@@ -13,6 +13,7 @@ describe('Test favorites reducer', () => {
     image: 'https://picsum.photos/id/111/200/200.jpg',
     comicsCount: 21,
     comicsUrl: 'https://tracytest.com',
+    comment: '',
   }
 
   test('Should save a new favorite character', () => {

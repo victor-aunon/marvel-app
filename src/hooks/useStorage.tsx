@@ -1,12 +1,18 @@
 import { useSelector, useDispatch } from 'react-redux'
 import type { Character } from '../interfaces'
-import { addFavorite, setFavorites, removeFavorite } from '../state/favorites'
+import {
+  addFavorite,
+  setFavorites,
+  removeFavorite,
+  addCommentToFavorite,
+} from '../state/favorites'
 import type { AppStore } from '../state/store'
 
 interface UseStorage {
   loadFavoritesFromStorage: () => void
   saveFavorite: (character: Character) => void
   deleteFavorite: (characterId: number) => void
+  addComment: (characterId: number, comment: string) => void
 }
 
 export function useStorage(): UseStorage {
@@ -49,5 +55,24 @@ export function useStorage(): UseStorage {
     dispatch(removeFavorite({ characterId }))
   }
 
-  return { loadFavoritesFromStorage, saveFavorite, deleteFavorite }
+  function addComment(characterId: number, comment: string): void {
+    localStorage.setItem(
+      'favorites',
+      JSON.stringify(
+        favoritesState.map((character) => {
+          if (character.id === characterId) return { ...character, comment }
+          return character
+        })
+      )
+    )
+
+    dispatch(
+      addCommentToFavorite({
+        characterId,
+        comment,
+      })
+    )
+  }
+
+  return { loadFavoritesFromStorage, saveFavorite, deleteFavorite, addComment }
 }

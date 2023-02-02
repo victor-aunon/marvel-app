@@ -51,6 +51,7 @@ export function useFetchCharactersData(): UseFetchCharacterData {
           comicsCount: character.comics.available,
           comicsUrl: character.urls.filter((url) => url.type === 'comiclink')[0]
             .url,
+          comment: '',
         })
       })
     } catch (error) {
