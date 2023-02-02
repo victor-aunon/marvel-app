@@ -14,6 +14,7 @@ const appTheme: DefaultTheme = {
     primary: '#e42f18',
     secondary: '#b8b8b8',
     background: '#242424',
+    dark: '#0c0c0d',
     text: '#ffffff',
   },
   fontWeights: {

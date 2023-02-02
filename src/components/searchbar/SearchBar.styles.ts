@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const InputSearch = styled.input`
   border-radius: ${(props) => props.theme.borderRadius};
-  height: 1.5rem;
+  height: 2rem;
   border: 2px solid ${(props) => props.theme.colors.primary};
   font-family: ${(props) => props.theme.fonts.content};
   font-size: ${(props) => props.theme.fontSizes.normal};

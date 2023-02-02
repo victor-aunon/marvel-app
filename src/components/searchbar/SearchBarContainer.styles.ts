@@ -7,7 +7,7 @@ export const SearchBarContainer = styled.div`
 
   .search-icon {
     position: absolute;
-    bottom: 0.2rem;
+    bottom: 0.5rem;
     right: 0.3rem;
     color: ${(props) => props.theme.colors.primary};
     font-size: 1.3rem;

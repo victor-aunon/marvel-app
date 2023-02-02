@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,400;0,600;1,400;1,600&family=Ropa+Sans&display=swap&display=swap');
 
 :root {
@@ -29,6 +28,17 @@ body {
   box-sizing: border-box;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
   margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }

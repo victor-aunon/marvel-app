@@ -16,6 +16,7 @@ declare module 'styled-components' {
       secondary: string
       text: string
       background: string
+      dark: string
     }
     fontWeights: {
       normal: string
