@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 interface CardProps extends React.RefAttributes<HTMLDivElement> {
-  readonly $isFavorite: boolean
+  readonly $isFavorite?: boolean
 }
 
 export const Card = styled.div<CardProps>`
@@ -17,11 +17,10 @@ export const Card = styled.div<CardProps>`
   border-radius: calc(3 * ${(props) => props.theme.borderRadius});
   outline: 8px solid ${(props) => props.theme.colors.primary};
   outline-offset: -20px;
-  box-shadow: 0px 0px 10px 0px
-    ${(props) =>
-      props.$isFavorite
-        ? props.theme.colors.tertiary
-        : props.theme.colors.secondary};
+  box-shadow: ${(props) =>
+    props.$isFavorite
+      ? `0px 0px 10px 4px ${props.theme.colors.tertiary}`
+      : `0px 0px 10px 0px ${props.theme.colors.secondary}`};
 
   .card-image {
     width: 100%;
