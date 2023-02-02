@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const PaginationContainer = styled.div`
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   font-family: ${(props) => props.theme.fonts.titles};
   font-weight: ${(props) => props.theme.fontWeights.bold};
   font-size: ${(props) => props.theme.fontSizes.medium};

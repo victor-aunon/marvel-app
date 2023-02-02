@@ -35,9 +35,14 @@ export function SearchResults(): JSX.Element {
         />
       )}
       <ResultsContainer>
-        {characters.map((character) => {
-          return <CharacterCard key={character.id} character={character} />
-        })}
+        {query !== '' &&
+          (characters.length > 0 ? (
+            characters.map((character) => {
+              return <CharacterCard key={character.id} character={character} />
+            })
+          ) : (
+            <p>There are no results matching your search</p>
+          ))}
       </ResultsContainer>
       {charactersPages > 1 && (
         <Pagination
