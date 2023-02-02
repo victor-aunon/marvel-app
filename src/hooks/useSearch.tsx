@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext, useState, useEffect } from 'react'
 import { QueryContext } from '../context'
 
 interface UseSearch {
@@ -10,7 +10,7 @@ interface UseSearch {
 export function useSearch(): UseSearch {
   const [search, setSearch] = useState('')
   const [queryTimeout, setQueryTimeout] = useState(setTimeout(() => {}))
-  const { setQuery } = useContext(QueryContext)
+  const { query, setQuery } = useContext(QueryContext)
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>): void {
     const searchValue = e.target.value.toLowerCase()
@@ -28,6 +28,10 @@ export function useSearch(): UseSearch {
     setQuery('')
     setSearch((prev) => '')
   }
+
+  useEffect(() => {
+    setSearch(query)
+  }, [])
 
   return { search, handleChange, clearSearch }
 }

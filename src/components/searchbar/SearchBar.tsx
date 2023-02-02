@@ -1,15 +1,10 @@
-import { useEffect } from 'react'
 import { InputSearch } from './SearchBar.styles'
 import { FiSearch } from 'react-icons/fi'
 import { SearchBarContainer } from './SearchBarContainer.styles'
 import { useSearch } from '../../hooks'
 
 export function SearchBar(): JSX.Element {
-  const { search, handleChange, clearSearch } = useSearch()
-
-  useEffect(() => {
-    clearSearch()
-  }, [])
+  const { search, handleChange } = useSearch()
 
   return (
     <SearchBarContainer>
