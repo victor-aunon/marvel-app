@@ -4,18 +4,9 @@ import { Provider } from 'react-redux'
 import appStore from '../../state/store'
 import { LocalStorageMock } from './localStorageMock'
 import { StorageTestComponent } from './components'
-import type { Character } from '../../interfaces'
+import { fakeCharacter1 } from './fakeCharacters'
 
 describe('Test useStorage hook', () => {
-  const fakeCharacter: Character = {
-    id: 0,
-    name: 'Tracy Test',
-    description: 'Tracy Test is a heroine',
-    image: 'https://picsum.photos/id/111/200/200.jpg',
-    comicsCount: 21,
-    comicsUrl: 'https://tracytest.com',
-  }
-
   beforeEach(() => {
     // Mock a clean localStorage
     global.localStorage = new LocalStorageMock()
@@ -25,7 +16,7 @@ describe('Test useStorage hook', () => {
     await act(async () =>
       render(
         <Provider store={appStore}>
-          <StorageTestComponent character={fakeCharacter} />
+          <StorageTestComponent character={fakeCharacter1} />
         </Provider>
       )
     )
@@ -36,7 +27,7 @@ describe('Test useStorage hook', () => {
     await userEvent.click(saveFavoriteButton)
     // Check that the fakeCharacter is persisted in local storage
     expect(global.localStorage.getItem('favorites')).toEqual(
-      JSON.stringify([fakeCharacter])
+      JSON.stringify([fakeCharacter1])
     )
     // Simulate a click to remove the fakeCharacter
     const removeFavoriteButton = screen.getByRole('button', {
@@ -49,18 +40,18 @@ describe('Test useStorage hook', () => {
 
   test('Should delete an existing character', async () => {
     // First populate local storage with fakeCharacter's data
-    global.localStorage.setItem('favorites', JSON.stringify([fakeCharacter]))
+    global.localStorage.setItem('favorites', JSON.stringify([fakeCharacter1]))
 
     await act(async () =>
       render(
         <Provider store={appStore}>
-          <StorageTestComponent character={fakeCharacter} />
+          <StorageTestComponent character={fakeCharacter1} />
         </Provider>
       )
     )
     // Check that the fakeCharacter is stored in local storage
     expect(global.localStorage.getItem('favorites')).toEqual(
-      JSON.stringify([fakeCharacter])
+      JSON.stringify([fakeCharacter1])
     )
     // Simulate a click to remove the fakeCharacter
     const removeFavoriteButton = screen.getByRole('button', {

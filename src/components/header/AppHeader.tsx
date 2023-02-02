@@ -11,7 +11,7 @@ export function AppHeader(): JSX.Element {
       </StyledLink>
       <Navbar>
         <StyledLink to={AppRoutes.favorites} $asTitle={false}>
-          Favorites
+          My Favorites
         </StyledLink>
       </Navbar>
     </Header>

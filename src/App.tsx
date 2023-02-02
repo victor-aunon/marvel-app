@@ -5,6 +5,7 @@ import { AppHeader } from './components/header'
 import { Home } from './pages/Home'
 import { Detail } from './pages/Detail'
 import { Initializer } from './components/initializer'
+import { Favorites } from './pages/Favorites'
 
 function App(): JSX.Element {
   return (
@@ -15,6 +16,7 @@ function App(): JSX.Element {
         <Routes>
           <Route path={AppRoutes.home} element={<Home />} />
           <Route path={AppRoutes.detail} element={<Detail />} />
+          <Route path={AppRoutes.favorites} element={<Favorites />} />
         </Routes>
       </Router>
     </Providers>
