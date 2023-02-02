@@ -1,11 +1,7 @@
 import styled from 'styled-components'
 import { Card } from '../common/Card.styles'
 
-interface BigCardProps extends React.RefAttributes<HTMLDivElement> {
-  readonly $isFavorite: boolean
-}
-
-export const BigCard = styled(Card)<BigCardProps>`
+export const BigCard = styled(Card)`
   height: auto;
   max-width: 400px;
   margin: 1rem auto;

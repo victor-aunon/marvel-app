@@ -1,6 +1,10 @@
 import styled from 'styled-components'
 
-export const Card = styled.div`
+interface CardProps extends React.RefAttributes<HTMLDivElement> {
+  readonly $isFavorite: boolean
+}
+
+export const Card = styled.div<CardProps>`
   height: 490px;
   display: flex;
   flex-direction: column;
@@ -13,7 +17,11 @@ export const Card = styled.div`
   border-radius: calc(3 * ${(props) => props.theme.borderRadius});
   outline: 8px solid ${(props) => props.theme.colors.primary};
   outline-offset: -20px;
-  box-shadow: 0px 0px 10px 0px ${(props) => props.theme.colors.secondary};
+  box-shadow: 0px 0px 10px 0px
+    ${(props) =>
+      props.$isFavorite
+        ? props.theme.colors.tertiary
+        : props.theme.colors.secondary};
 
   .card-image {
     width: 100%;
