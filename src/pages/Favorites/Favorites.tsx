@@ -5,7 +5,7 @@ import { SearchFavorites } from '../../components/searchFavorites'
 export function Favorites(): JSX.Element {
   return (
     <Container>
-      <SearchBar />
+      <SearchBar placeholder="Search in favorites" />
       <SearchFavorites />
     </Container>
   )

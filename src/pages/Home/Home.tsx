@@ -5,7 +5,7 @@ import { SearchResults } from '../../components/searchResults/SearchResults'
 export function Home(): JSX.Element {
   return (
     <Container>
-      <SearchBar />
+      <SearchBar placeholder="Search for a Marvel character" />
       <SearchResults />
     </Container>
   )

@@ -3,7 +3,11 @@ import { FiSearch } from 'react-icons/fi'
 import { SearchBarContainer } from './SearchBarContainer.styles'
 import { useSearch } from '../../hooks'
 
-export function SearchBar(): JSX.Element {
+interface SearchBarProps {
+  placeholder: string
+}
+
+export function SearchBar({ placeholder }: SearchBarProps): JSX.Element {
   const { search, handleChange } = useSearch()
 
   return (
@@ -14,7 +18,7 @@ export function SearchBar(): JSX.Element {
       <InputElement
         name="search-bar"
         id="search-bar"
-        placeholder="Search for a Marvel character"
+        placeholder={placeholder}
         value={search}
         onChange={handleChange}
       />
