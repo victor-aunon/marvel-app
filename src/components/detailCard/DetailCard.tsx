@@ -8,7 +8,7 @@ import { BigCard } from './BigCard.styles'
 import { useStorage } from '../../hooks'
 
 export function DetailCard(): JSX.Element {
-  const { character } = useContext(CurrentCharacterContext)
+  const { character, setCharacter } = useContext(CurrentCharacterContext)
   const [isFavorite, setIsFavorite] = useState(false)
   const { saveFavorite, deleteFavorite } = useStorage()
   const favoritesState = useSelector((store: AppStore) => store.favorites)
@@ -19,6 +19,7 @@ export function DetailCard(): JSX.Element {
     } else {
       saveFavorite(character)
     }
+    setCharacter({ ...character, isFavorite: !character.isFavorite })
     setIsFavorite((prev) => !prev)
   }
 

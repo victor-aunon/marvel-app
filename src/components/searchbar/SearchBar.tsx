@@ -1,4 +1,4 @@
-import { InputSearch } from './SearchBar.styles'
+import { InputElement } from '../common'
 import { FiSearch } from 'react-icons/fi'
 import { SearchBarContainer } from './SearchBarContainer.styles'
 import { useSearch } from '../../hooks'
@@ -11,7 +11,7 @@ export function SearchBar(): JSX.Element {
       <label htmlFor="search-bar" style={{ visibility: 'hidden' }}>
         Search for a Marvel character
       </label>
-      <InputSearch
+      <InputElement
         name="search-bar"
         id="search-bar"
         placeholder="Search for a Marvel character"

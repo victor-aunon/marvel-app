@@ -6,6 +6,7 @@ export interface Character {
   comicsUrl: string
   comicsCount: number
   comment: string
+  isFavorite?: boolean
 }
 
 export interface CharacterApi {

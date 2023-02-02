@@ -28,7 +28,7 @@ describe('Test useStorage hook', () => {
     await userEvent.click(saveFavoriteButton)
     // Check that the fakeCharacter is persisted in local storage
     expect(global.localStorage.getItem('favorites')).toEqual(
-      JSON.stringify([fakeCharacter1])
+      JSON.stringify([{ ...fakeCharacter1, isFavorite: true }])
     )
     // Simulate a click to remove the fakeCharacter
     const removeFavoriteButton = screen.getByRole('button', {

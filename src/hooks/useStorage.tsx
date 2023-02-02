@@ -34,12 +34,12 @@ export function useStorage(): UseStorage {
   function saveFavorite(character: Character): void {
     localStorage.setItem(
       'favorites',
-      JSON.stringify([...favoritesState, character])
+      JSON.stringify([...favoritesState, { ...character, isFavorite: true }])
     )
 
     dispatch(
       addFavorite({
-        character,
+        character: { ...character, isFavorite: true },
       })
     )
   }
