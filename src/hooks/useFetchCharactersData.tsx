@@ -14,7 +14,7 @@ export function useFetchCharactersData(): UseFetchCharacterData {
   const publicKey: string = process.env.VITE_PUBLIC_API_KEY ?? ''
   const privateKey: string = process.env.VITE_PRIVATE_API_KEY ?? ''
   const resultsPerCall = 20
-  const apiUrl = 'http://gateway.marvel.com/v1/public'
+  const apiUrl = 'https://gateway.marvel.com/v1/public'
   const { query } = useContext(QueryContext)
   const [charactersPages, setCharactersPages] = useState(1)
   const [comicsPages, setComicsPages] = useState(1)
