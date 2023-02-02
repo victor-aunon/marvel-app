@@ -40,7 +40,7 @@ export function useFetchCharactersData(): UseFetchCharacterData {
       const response = await fetch(charactersUrl)
       const data = await response.json()
       const charactersApi: CharacterApi[] = data.data.results
-      setCharactersPages(Math.ceil(data.data.total / resultsPerCall))
+      setCharactersPages((prev) => Math.ceil(data.data.total / resultsPerCall))
 
       charactersApi.forEach((character) => {
         characters.push({
@@ -77,7 +77,7 @@ export function useFetchCharactersData(): UseFetchCharacterData {
       const response = await fetch(comicsUrl)
       const data = await response.json()
       const comicsApi: ComicApi[] = data.data.results
-      setComicsPages(Math.ceil(data.data.total / resultsPerCall))
+      setComicsPages((prev) => Math.ceil(data.data.total / resultsPerCall))
 
       comicsApi.forEach((comic) => {
         comics.push({
