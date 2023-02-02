@@ -27,7 +27,7 @@ export function SearchResults(): JSX.Element {
 
   return (
     <>
-      {charactersPages > 1 && (
+      {charactersPages > 1 && query !== '' && (
         <Pagination
           pages={charactersPages}
           currentPage={page}
@@ -44,7 +44,7 @@ export function SearchResults(): JSX.Element {
             <p>There are no results matching your search</p>
           ))}
       </ResultsContainer>
-      {charactersPages > 1 && (
+      {charactersPages > 1 && query !== '' && (
         <Pagination
           pages={charactersPages}
           currentPage={page}
