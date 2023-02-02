@@ -1,6 +1,8 @@
+import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { AppRoutes } from '../../routes'
 import { Card } from '../common'
+import { CurrentCharacterContext } from '../../context'
 import type { Character } from '../../interfaces'
 
 interface CharacterCardProps {
@@ -8,8 +10,15 @@ interface CharacterCardProps {
 }
 
 export function CharacterCard({ character }: CharacterCardProps): JSX.Element {
+  const { setCharacter } = useContext(CurrentCharacterContext)
+
   return (
-    <Link to={AppRoutes.detail}>
+    <Link
+      to={AppRoutes.detail}
+      onClick={() => {
+        setCharacter(character)
+      }}
+    >
       <Card>
         <img
           src={character.image}

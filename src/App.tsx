@@ -3,6 +3,7 @@ import { Providers } from './context'
 import { AppRoutes } from './routes'
 import { AppHeader } from './components/header'
 import { Home } from './pages/Home'
+import { Detail } from './pages/Detail'
 
 function App(): JSX.Element {
   return (
@@ -11,6 +12,7 @@ function App(): JSX.Element {
         <AppHeader />
         <Routes>
           <Route path={AppRoutes.home} element={<Home />} />
+          <Route path={AppRoutes.detail} element={<Detail />} />
         </Routes>
       </Router>
     </Providers>

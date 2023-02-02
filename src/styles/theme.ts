@@ -13,6 +13,7 @@ const appTheme: DefaultTheme = {
   colors: {
     primary: '#e42f18',
     secondary: '#b8b8b8',
+    tertiary: 'gold',
     background: '#242424',
     dark: '#0c0c0d',
     text: '#ffffff',
