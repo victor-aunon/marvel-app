@@ -38,7 +38,7 @@ export function DetailCard(): JSX.Element {
           )}
           <button className="card-add-favorite-button" onClick={handleFavorite}>
             <BsFillStarFill className="favorite-icon" />
-            <p>Add to favorites</p>
+            <p>{isFavorite ? 'Remove from favorites' : 'Add to favorites'}</p>
           </button>
         </BigCard>
       )}
