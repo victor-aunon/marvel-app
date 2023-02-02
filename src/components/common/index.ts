@@ -1,4 +1,5 @@
-export * from './Link.styles'
-export * from './Container.styles'
 export * from './Card.styles'
+export * from './Container.styles'
+export * from './Link.styles'
 export * from './LinkWithIcon.styles'
+export * from './ResultsContainer.styles'
