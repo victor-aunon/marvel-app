@@ -24,6 +24,8 @@
     "@typescript-eslint/no-empty-function": [
       "error",
       { "allow": ["arrowFunctions"] }
-    ]
+    ],
+    "@typescript-eslint/no-dynamic-delete": "off",
+    "@typescript-eslint/strict-boolean-expressions": "off"
   }
 }

@@ -4,10 +4,12 @@ import { AppRoutes } from './routes'
 import { AppHeader } from './components/header'
 import { Home } from './pages/Home'
 import { Detail } from './pages/Detail'
+import { Initializer } from './components/initializer'
 
 function App(): JSX.Element {
   return (
     <Providers>
+      <Initializer />
       <Router>
         <AppHeader />
         <Routes>

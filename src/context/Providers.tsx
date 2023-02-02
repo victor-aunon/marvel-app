@@ -1,11 +1,13 @@
 import { useState } from 'react'
 import { ThemeProvider } from 'styled-components'
+import { Provider } from 'react-redux'
 import { QueryContext } from './QueryContext'
 import {
   CurrentCharacterContext,
   currentCharacterInitialState,
 } from './CurrentCharacterContext'
 import appTheme from '../styles/theme'
+import appStore from '../state/store'
 import type { Character } from '../interfaces'
 
 interface ProvidersProps {
@@ -20,11 +22,13 @@ export function Providers({ children }: ProvidersProps): JSX.Element {
 
   return (
     <ThemeProvider theme={appTheme}>
-      <QueryContext.Provider value={{ query, setQuery }}>
-        <CurrentCharacterContext.Provider value={{ character, setCharacter }}>
-          {children}
-        </CurrentCharacterContext.Provider>
-      </QueryContext.Provider>
+      <Provider store={appStore}>
+        <QueryContext.Provider value={{ query, setQuery }}>
+          <CurrentCharacterContext.Provider value={{ character, setCharacter }}>
+            {children}
+          </CurrentCharacterContext.Provider>
+        </QueryContext.Provider>
+      </Provider>
     </ThemeProvider>
   )
 }

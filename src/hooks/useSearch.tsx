@@ -25,8 +25,8 @@ export function useSearch(): UseSearch {
   }
 
   function clearSearch(): void {
-    setSearch('')
     setQuery('')
+    setSearch((prev) => '')
   }
 
   return { search, handleChange, clearSearch }

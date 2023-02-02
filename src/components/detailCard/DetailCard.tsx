@@ -3,12 +3,19 @@ import { LinkWithIcon } from '../common'
 import { CurrentCharacterContext } from '../../context'
 import { BsFillStarFill, BsLink45Deg } from 'react-icons/bs'
 import { BigCard } from './BigCard.styles'
+import { useStorage } from '../../hooks'
 
 export function DetailCard(): JSX.Element {
   const { character } = useContext(CurrentCharacterContext)
   const [isFavorite, setIsFavorite] = useState(false)
+  const { saveFavorite, deleteFavorite } = useStorage()
 
   function handleFavorite(): void {
+    if (isFavorite) {
+      deleteFavorite(character.id)
+    } else {
+      saveFavorite(character)
+    }
     setIsFavorite((prev) => !prev)
   }
 
