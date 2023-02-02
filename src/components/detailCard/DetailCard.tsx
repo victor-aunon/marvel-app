@@ -1,4 +1,6 @@
-import { useContext, useState } from 'react'
+import { useContext, useState, useEffect } from 'react'
+import { useSelector } from 'react-redux'
+import type { AppStore } from '../../state/store'
 import { LinkWithIcon } from '../common'
 import { CurrentCharacterContext } from '../../context'
 import { BsFillStarFill, BsLink45Deg } from 'react-icons/bs'
@@ -9,6 +11,7 @@ export function DetailCard(): JSX.Element {
   const { character } = useContext(CurrentCharacterContext)
   const [isFavorite, setIsFavorite] = useState(false)
   const { saveFavorite, deleteFavorite } = useStorage()
+  const favoritesState = useSelector((store: AppStore) => store.favorites)
 
   function handleFavorite(): void {
     if (isFavorite) {
@@ -18,6 +21,16 @@ export function DetailCard(): JSX.Element {
     }
     setIsFavorite((prev) => !prev)
   }
+
+  // Set isFavorite on component mount if the character is in favorites
+  useEffect(() => {
+    if (favoritesState.length === 0) return
+    const characterInFavorites = favoritesState.find(
+      (favorite) => favorite.id === character.id
+    )
+
+    if (characterInFavorites) setIsFavorite((prev) => true)
+  }, [favoritesState])
 
   return (
     <>
