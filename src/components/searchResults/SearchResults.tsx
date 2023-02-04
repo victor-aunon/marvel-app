@@ -28,9 +28,14 @@ export function SearchResults(): JSX.Element {
       })
   }, [query, page])
 
+  // Reset page to zero on each query change
+  useEffect(() => {
+    setPage(0)
+  }, [query])
+
   return (
     <>
-      {charactersPages > 1 && !isLoading && (
+      {charactersPages > 1 && query !== '' && (
         <Pagination
           pages={charactersPages}
           currentPage={page}
@@ -39,6 +44,7 @@ export function SearchResults(): JSX.Element {
       )}
       <ResultsContainer>
         {!isLoading &&
+          query !== '' &&
           (characters.length > 0 ? (
             characters.map((character) => {
               const isFavorite = favoritesState.find(
@@ -56,7 +62,7 @@ export function SearchResults(): JSX.Element {
             <p>There are no results matching your search</p>
           ))}
       </ResultsContainer>
-      {charactersPages > 1 && !isLoading && (
+      {charactersPages > 1 && query !== '' && (
         <Pagination
           pages={charactersPages}
           currentPage={page}
