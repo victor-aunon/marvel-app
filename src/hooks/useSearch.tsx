@@ -5,6 +5,7 @@ interface UseSearch {
   search: string
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   clearSearch: () => void
+  setSearch: React.Dispatch<React.SetStateAction<string>>
 }
 
 export function useSearch(): UseSearch {
@@ -31,7 +32,7 @@ export function useSearch(): UseSearch {
 
   useEffect(() => {
     setSearch(query)
-  }, [])
+  }, [query])
 
-  return { search, handleChange, clearSearch }
+  return { search, handleChange, clearSearch, setSearch }
 }
