@@ -29,7 +29,11 @@ export function CommentsBox(): JSX.Element {
   // Set isFavorite on component mount if the character is in favorites
   // and when favoritesState changes
   useEffect(() => {
-    if (favoritesState.length === 0) return
+    if (favoritesState.length === 0) {
+      setCurrentCharacter({})
+      return
+    }
+
     const characterInFavorites = favoritesState.find(
       (favorite) => favorite.id === character.id
     )
@@ -40,7 +44,7 @@ export function CommentsBox(): JSX.Element {
 
   return (
     <>
-      {currentCharacter && (
+      {currentCharacter?.isFavorite && (
         <Form onSubmit={handleSubmit}>
           <label htmlFor="comment" style={{ visibility: 'hidden' }}>
             Insert a comment for this character
