@@ -35,7 +35,7 @@ export function DetailCard(): JSX.Element {
 
   return (
     <>
-      {character.name !== '' && (
+      {character.name !== '' ? (
         <BigCard $isFavorite={isFavorite}>
           <img
             src={character.image}
@@ -62,6 +62,10 @@ export function DetailCard(): JSX.Element {
             <p>{isFavorite ? 'Remove from favorites' : 'Add to favorites'}</p>
           </button>
         </BigCard>
+      ) : (
+        <p style={{ textAlign: 'center', margin: '2rem auto' }}>
+          You have not selected any character
+        </p>
       )}
     </>
   )

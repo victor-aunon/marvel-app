@@ -15,7 +15,9 @@ export function CommentsBox(): JSX.Element {
   const { character } = useContext(CurrentCharacterContext)
   const { addComment } = useStorage()
   const favoritesState = useSelector((store: AppStore) => store.favorites)
-  const [currentCharacter, setCurrentCharacter] = useState<Character>()
+  const [currentCharacter, setCurrentCharacter] = useState<
+    Character | undefined
+  >()
 
   function handleSubmit(e: React.SyntheticEvent): void {
     e.preventDefault()
@@ -30,7 +32,7 @@ export function CommentsBox(): JSX.Element {
   // and when favoritesState changes
   useEffect(() => {
     if (favoritesState.length === 0) {
-      setCurrentCharacter({})
+      setCurrentCharacter(undefined)
       return
     }
 
